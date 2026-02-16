@@ -91,17 +91,12 @@ export class Renderer {
           this._drawSprite(ctx, x, y, 'gem');
         }
 
-        // 6. Crânes/Abeilles
-        if (skulls[idx]) {
-          this._drawSprite(ctx, x, y, 'skull');
-        }
-
-        // 7. Murs du joueur
+        // 6. Murs du joueur
         if (playerWalls[idx]) {
           this._drawWall(ctx, x, y, idx);
         }
 
-        // 8. Hover highlight
+        // 7. Hover highlight
         if (idx === this.hoveredIdx && terrain[idx] === TERRAIN.GRASS && !playerWalls[idx]) {
           ctx.fillStyle = 'rgba(255,255,255,0.15)';
           ctx.fillRect(x, y, S, S);
@@ -109,14 +104,14 @@ export class Renderer {
       }
     }
 
-    // 9. Le cheval (rendu en dernier pour être au-dessus)
+    // 8. Le cheval (rendu en dernier pour être au-dessus)
     if (playerIdx >= 0) {
       const hr = Math.floor(playerIdx / cols);
       const hc = playerIdx % cols;
       this._drawHorse(ctx, hc * S, hr * S, playerIdx);
     }
 
-    // 10. Chemin d'échappement (si le cheval s'échappe)
+    // 9. Chemin d'échappement (si le cheval s'échappe)
     if (bfsResult && bfsResult.escaped && bfsResult.escapePath.length > 1) {
       this._drawEscapePath(ctx, bfsResult.escapePath, cols);
     }
