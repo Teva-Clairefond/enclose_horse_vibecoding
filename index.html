@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>e n c l o s e . h o r s e</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐴</text></svg>" />
+</head>
+<body>
+  <!-- Fond d'herbe tilé -->
+  <canvas id="grassBg"></canvas>
+
+  <!-- Application principale -->
+  <div id="app">
+    <!-- Navbar -->
+    <nav id="navbar">
+      <button id="helpBtn" title="How to play">?</button>
+      <h1 id="title">
+        <span class="letter">e</span>
+        <span class="letter"> </span>
+        <span class="letter">n</span>
+        <span class="letter"> </span>
+        <span class="letter">c</span>
+        <span class="letter"> </span>
+        <span class="letter">l</span>
+        <span class="letter"> </span>
+        <span class="letter">o</span>
+        <span class="letter"> </span>
+        <span class="letter">s</span>
+        <span class="letter"> </span>
+        <span class="letter">e</span>
+        <span class="letter"> </span>
+        <span class="letter">.</span>
+        <span class="letter"> </span>
+        <span class="letter">h</span>
+        <span class="letter"> </span>
+        <span class="letter">o</span>
+        <span class="letter"> </span>
+        <span class="letter">r</span>
+        <span class="letter"> </span>
+        <span class="letter">s</span>
+        <span class="letter"> </span>
+        <span class="letter">e</span>
+      </h1>
+      <button id="menuBtn" title="Level select">☰</button>
+    </nav>
+
+    <div id="subtitle"></div>
+
+    <!-- Game Container -->
+    <div id="gameContainer">
+      <canvas id="game"></canvas>
+    </div>
+
+    <!-- Stats -->
+    <div id="stats">
+      <div>
+        <span class="stat-label">Walls: </span>
+        <span class="stat-value" id="wallsCount">0</span>
+        <span class="stat-label">/ </span>
+        <span class="stat-value" id="wallsBudget">0</span>
+      </div>
+      <div>
+        <span class="stat-label">Score: </span>
+        <span class="stat-value" id="scoreValue">N/A</span>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div id="buttons"></div>
+
+    <!-- Level Navigation -->
+    <div id="levelNav">
+      <button id="prevLevel">← Prev</button>
+      <button id="nextLevel">Next →</button>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

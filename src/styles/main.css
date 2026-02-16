@@ -1,0 +1,383 @@
+/* ─── Main CSS ─── */
+/* Styles principaux pour le clone enclose.horse */
+
+@import url('https://fonts.googleapis.com/css2?family=Schoolbell&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Schoolbell', cursive;
+  overflow: hidden;
+  background: #186b3b;
+  color: #ffffff;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* ─── Background Canvas ─── */
+#grassBg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* ─── App Container ─── */
+#app {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 10px;
+}
+
+/* ─── Navbar ─── */
+#navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  padding: 8px 16px;
+}
+
+#helpBtn,
+#menuBtn {
+  background: none;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  font-family: 'Schoolbell', cursive;
+  font-size: 20px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+#helpBtn:hover,
+#menuBtn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+#title {
+  font-size: 28px;
+  letter-spacing: 6px;
+  text-align: center;
+  flex: 1;
+  cursor: default;
+}
+
+#title .letter {
+  display: inline-block;
+}
+
+#subtitle {
+  font-size: 16px;
+  opacity: 0.8;
+  text-align: center;
+  margin-top: -2px;
+  margin-bottom: 8px;
+}
+
+/* ─── Game Container ─── */
+#gameContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 8px;
+}
+
+#game {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  border: 3px solid rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* ─── Stats Row ─── */
+#stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 12px;
+  font-size: 20px;
+}
+
+.stat-label {
+  opacity: 0.7;
+}
+
+.stat-value {
+  font-weight: bold;
+  font-size: 22px;
+}
+
+#scoreValue.escaped {
+  color: #ff8888;
+}
+
+#scoreValue.enclosed {
+  color: #ffd700;
+}
+
+/* ─── Buttons ─── */
+#buttons {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+  justify-content: center;
+}
+
+.wiggly-button {
+  display: block;
+}
+
+/* ─── Level Navigation ─── */
+#levelNav {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+  align-items: center;
+}
+
+#levelNav button {
+  background: none;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  font-family: 'Schoolbell', cursive;
+  font-size: 18px;
+  padding: 6px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.2s, opacity 0.2s;
+}
+
+#levelNav button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+#levelNav button:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+/* ─── Thought Bubble ─── */
+.thought-bubble {
+  position: absolute;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* ─── Modal ─── */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-container {
+  position: relative;
+  min-width: 320px;
+  max-width: 480px;
+  padding: 0;
+}
+
+.modal-bg-canvas {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  pointer-events: none;
+}
+
+.modal-content {
+  position: relative;
+  z-index: 1;
+  padding: 28px 32px;
+  color: #333;
+  font-family: 'Schoolbell', cursive;
+}
+
+.modal-title {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 16px;
+  color: #186b3b;
+}
+
+.modal-body {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.modal-close {
+  position: absolute;
+  top: 4px;
+  right: 12px;
+  z-index: 2;
+  font-size: 28px;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.2s;
+}
+
+.modal-close:hover {
+  color: #333;
+}
+
+/* ─── Help Modal ─── */
+.help-subtitle {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 16px;
+  font-style: italic;
+}
+
+.help-rules {
+  list-style: none;
+  padding: 0;
+}
+
+.help-rules li {
+  padding: 4px 0;
+  padding-left: 20px;
+  position: relative;
+}
+
+.help-rules li::before {
+  content: '•';
+  position: absolute;
+  left: 4px;
+  color: #186b3b;
+}
+
+.help-tip {
+  margin-top: 16px;
+  padding: 8px;
+  background: rgba(24, 107, 59, 0.1);
+  border-radius: 8px;
+  text-align: center;
+  font-style: italic;
+}
+
+/* ─── Results Modal ─── */
+.result-escaped {
+  text-align: center;
+  font-size: 20px;
+  color: #cc4444;
+}
+
+.result-enclosed {
+  text-align: center;
+  font-size: 20px;
+  color: #186b3b;
+  margin-bottom: 12px;
+}
+
+.result-breakdown {
+  background: rgba(0, 0, 0, 0.05);
+  padding: 12px 16px;
+  border-radius: 8px;
+}
+
+.result-breakdown p {
+  padding: 3px 0;
+}
+
+.result-total {
+  font-size: 20px;
+  color: #186b3b;
+}
+
+.result-optimal {
+  font-size: 14px;
+  opacity: 0.6;
+  font-style: italic;
+}
+
+/* ─── Level Select ─── */
+.level-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.level-item {
+  padding: 10px 8px;
+  background: rgba(24, 107, 59, 0.08);
+  border: 2px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.level-item:hover {
+  background: rgba(24, 107, 59, 0.15);
+}
+
+.level-item.active {
+  border-color: #186b3b;
+}
+
+.level-item.completed {
+  background: rgba(24, 107, 59, 0.12);
+}
+
+.level-day {
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+.level-name {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.level-score {
+  font-size: 12px;
+  color: #186b3b;
+  margin-top: 4px;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 600px) {
+  #title {
+    font-size: 20px;
+    letter-spacing: 3px;
+  }
+
+  #stats {
+    font-size: 16px;
+    gap: 16px;
+  }
+
+  .level-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
