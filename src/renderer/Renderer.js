@@ -245,8 +245,6 @@ export class Renderer {
     ctx.save();
     ctx.strokeStyle = COLORS.escapePath;
     ctx.lineWidth = 3 * SCALE;
-    ctx.setLineDash([6 * SCALE, 4 * SCALE]);
-    ctx.lineDashOffset = -this.animations.escapeAnimOffset * SCALE;
 
     ctx.beginPath();
     for (let i = 0; i < path.length; i++) {
