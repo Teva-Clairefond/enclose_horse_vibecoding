@@ -12,7 +12,6 @@ export const MAX_UNDO = 50;
 
 export const CHERRY_BONUS = 3;
 export const GEM_BONUS = 10;
-export const SKULL_PENALTY = 5;
 
 // Types de terrain
 export const TERRAIN = {

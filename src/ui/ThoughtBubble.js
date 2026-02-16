@@ -28,8 +28,6 @@ const MESSAGES_ENCLOSED = [
 
 const MESSAGES_WITH_GEM = ['At least there\'s a golden apple in here.'];
 
-const MESSAGES_WITH_SKULL = ['WHY ARE THERE BEES IN HERE WITH ME?'];
-
 export class ThoughtBubble {
   constructor() {
     this.visible = false;
@@ -50,13 +48,11 @@ export class ThoughtBubble {
    * Affiche une bulle de pensée
    * @param {boolean} enclosed - Le cheval est-il enclos ?
    * @param {boolean} hasGem - Y a-t-il une gemme dans l'enclos ?
-   * @param {boolean} hasSkull - Y a-t-il un crâne dans l'enclos ?
    */
-  show(enclosed, hasGem = false, hasSkull = false) {
+  show(enclosed, hasGem = false) {
     let messages;
     if (enclosed) {
-      if (hasSkull) messages = MESSAGES_WITH_SKULL;
-      else if (hasGem) messages = MESSAGES_WITH_GEM;
+      if (hasGem) messages = MESSAGES_WITH_GEM;
       else messages = MESSAGES_ENCLOSED;
     } else {
       messages = MESSAGES_FREE;

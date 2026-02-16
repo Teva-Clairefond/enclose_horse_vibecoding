@@ -46,7 +46,7 @@ export class GameEngine {
     if (this.submitted) return false;
     if (!this.level) return false;
 
-    const { terrain, cherries, gems, skulls, portals, playerIdx } = this.level;
+    const { terrain, cherries, gems, portals, playerIdx } = this.level;
 
     // Ne peut pas placer sur l'eau
     if (terrain[idx] === TERRAIN.WATER) return false;
@@ -54,8 +54,8 @@ export class GameEngine {
     // Ne peut pas placer sur le cheval
     if (idx === playerIdx) return false;
 
-    // Ne peut pas placer sur les cerises, gemmes, crânes ou portails
-    if (cherries[idx] || gems[idx] || skulls[idx] || portals[idx] >= 0) return false;
+    // Ne peut pas placer sur les cerises, gemmes ou portails
+    if (cherries[idx] || gems[idx] || portals[idx] >= 0) return false;
 
     // Sauvegarder l'état avant modification
     this.undoRedo.push(this.playerWalls);
@@ -149,10 +149,10 @@ export class GameEngine {
   canPlaceWall(idx) {
     if (!this.level) return false;
     if (this.submitted) return false;
-    const { terrain, cherries, gems, skulls, portals, playerIdx } = this.level;
+    const { terrain, cherries, gems, portals, playerIdx } = this.level;
     if (terrain[idx] === TERRAIN.WATER) return false;
     if (idx === playerIdx) return false;
-    if (cherries[idx] || gems[idx] || skulls[idx] || portals[idx] >= 0) return false;
+    if (cherries[idx] || gems[idx] || portals[idx] >= 0) return false;
     if (this.playerWalls[idx]) return true; // Peut retirer
     return this.wallsPlaced < this.wallBudget;
   }

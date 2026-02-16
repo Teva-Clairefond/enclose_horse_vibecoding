@@ -1,7 +1,7 @@
 // ─── Scoring ───
 // Calcul des scores à partir des résultats du BFS
 
-import { CHERRY_BONUS, GEM_BONUS, SKULL_PENALTY } from '../utils/constants.js';
+import { CHERRY_BONUS, GEM_BONUS } from '../utils/constants.js';
 
 /**
  * Calcule le score détaillé à partir du résultat BFS
@@ -15,7 +15,6 @@ export function calculateScore(bfsResult) {
       area: 0,
       cherryBonus: 0,
       gemBonus: 0,
-      skullPenalty: 0,
       escaped: true,
     };
   }
@@ -23,16 +22,14 @@ export function calculateScore(bfsResult) {
   const area = bfsResult.area || bfsResult.visited.size;
   const cherryBonus = (bfsResult.cherryCount || 0) * CHERRY_BONUS;
   const gemBonus = (bfsResult.gemCount || 0) * GEM_BONUS;
-  const skullPenalty = (bfsResult.skullCount || 0) * SKULL_PENALTY;
 
-  const total = Math.max(0, area + cherryBonus + gemBonus - skullPenalty);
+  const total = Math.max(0, area + cherryBonus + gemBonus);
 
   return {
     total,
     area,
     cherryBonus,
     gemBonus,
-    skullPenalty,
     escaped: false,
   };
 }

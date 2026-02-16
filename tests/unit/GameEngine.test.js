@@ -86,14 +86,6 @@ describe('GameEngine', () => {
       expect(result).toBe(false);
     });
 
-    it('should not place wall on skull', () => {
-      const level = parseMap('S....\n..H..\n.....\n.....\n.....');
-      engine.loadLevel(level, 10);
-
-      const result = engine.toggleWall(0);
-      expect(result).toBe(false);
-    });
-
     it('should not place wall on portal', () => {
       const level = parseMap('0....\n..H..\n.....\n.....\n..0..');
       engine.loadLevel(level, 10);

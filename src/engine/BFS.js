@@ -15,7 +15,7 @@ import { idxToPos, posToIdx } from '../levels/MapParser.js';
  * @returns {Object} Résultat du BFS
  */
 export function solveBFS(level, playerWalls) {
-  const { rows, cols, terrain, cherries, gems, skulls, portals, playerIdx } = level;
+  const { rows, cols, terrain, cherries, gems, portals, playerIdx } = level;
 
   if (playerIdx < 0) {
     return { escaped: true, visited: new Set(), escapePath: [], score: 0 };
@@ -89,16 +89,14 @@ export function solveBFS(level, playerWalls) {
   // Le cheval est enclos — calculer le score
   let cherryCount = 0;
   let gemCount = 0;
-  let skullCount = 0;
 
   for (const idx of visited) {
     if (cherries[idx]) cherryCount++;
     if (gems[idx]) gemCount++;
-    if (skulls[idx]) skullCount++;
   }
 
   const area = visited.size;
-  const score = area + cherryCount * 3 + gemCount * 10 - skullCount * 5;
+  const score = area + cherryCount * 3 + gemCount * 10;
 
   return {
     escaped: false,
@@ -108,7 +106,6 @@ export function solveBFS(level, playerWalls) {
     area,
     cherryCount,
     gemCount,
-    skullCount,
   };
 }
 

@@ -154,22 +154,6 @@ describe('BFS Pathfinding', () => {
       expect(result.gemCount).toBe(1);
     });
 
-    it('should count skulls in enclosed area', () => {
-      const map = [
-        '~~~~~',
-        '~.S.~',
-        '~.H.~',
-        '~...~',
-        '~~~~~',
-      ].join('\n');
-      const level = parseMap(map);
-      const walls = new Uint8Array(level.rows * level.cols);
-
-      const result = solveBFS(level, walls);
-      expect(result.escaped).toBe(false);
-      expect(result.skullCount).toBe(1);
-    });
-
     it('should return escaped with no player', () => {
       const map = [
         '.....',

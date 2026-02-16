@@ -12,7 +12,6 @@ const CHAR_MAP = {
   H: 'horse',
   C: 'cherry',
   G: 'gem',
-  S: 'skull',
 };
 
 /**
@@ -35,7 +34,6 @@ export function parseMap(mapString) {
   const walls = new Uint8Array(totalCells); // 0 = no wall, 1 = wall
   const cherries = new Uint8Array(totalCells);
   const gems = new Uint8Array(totalCells);
-  const skulls = new Uint8Array(totalCells);
   const portals = new Int8Array(totalCells).fill(-1); // -1 = no portal
 
   let playerIdx = -1;
@@ -56,9 +54,6 @@ export function parseMap(mapString) {
       } else if (ch === 'G') {
         terrain[idx] = TERRAIN.GRASS;
         gems[idx] = 1;
-      } else if (ch === 'S') {
-        terrain[idx] = TERRAIN.GRASS;
-        skulls[idx] = 1;
       } else if (/[0-9]/.test(ch)) {
         terrain[idx] = TERRAIN.GRASS;
         portals[idx] = parseInt(ch, 10);
@@ -79,7 +74,6 @@ export function parseMap(mapString) {
     walls,
     cherries,
     gems,
-    skulls,
     portals,
     playerIdx,
   };

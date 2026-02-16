@@ -51,14 +51,6 @@ describe('MapParser', () => {
       expect(result.terrain[1]).toBe(TERRAIN.GRASS);
     });
 
-    it('should identify skulls', () => {
-      const map = '..S\n...\n...';
-      const result = parseMap(map);
-
-      expect(result.skulls[2]).toBe(1);
-      expect(result.terrain[2]).toBe(TERRAIN.GRASS);
-    });
-
     it('should identify numeric portals (0-9)', () => {
       const map = '0..\n...\n..0';
       const result = parseMap(map);
@@ -77,14 +69,13 @@ describe('MapParser', () => {
     });
 
     it('should handle mixed tile types', () => {
-      const map = '.~C\nGHS\n0.1';
+      const map = '.~C\nGH.\n0.1';
       const result = parseMap(map);
 
       expect(result.terrain[1]).toBe(TERRAIN.WATER);
       expect(result.cherries[2]).toBe(1);
       expect(result.gems[3]).toBe(1);
       expect(result.playerIdx).toBe(4);
-      expect(result.skulls[5]).toBe(1);
       expect(result.portals[6]).toBe(0);
       expect(result.portals[8]).toBe(1);
     });

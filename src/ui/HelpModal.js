@@ -22,7 +22,6 @@ export class HelpModal extends WigglyModal {
         <li>Horses can't move diagonally or over water.</li>
         <li>Enclosed cherries give +3!</li>
         <li>Enclosed golden apples give +10!</li>
-        <li>Enclosed bees give -5!</li>
         <li>Portals connect distant cells - the horse can teleport through them!</li>
         <li>Bigger enclosure = bigger score, but you only have one chance to submit!</li>
       </ul>

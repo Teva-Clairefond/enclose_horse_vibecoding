@@ -43,7 +43,7 @@ export class Renderer {
     const { level, playerWalls, bfsResult, scoreResult } = gameState;
     if (!level) return;
 
-    const { rows, cols, terrain, cherries, gems, skulls, portals, playerIdx } = level;
+    const { rows, cols, terrain, cherries, gems, portals, playerIdx } = level;
     const ctx = this.ctx;
     const now = performance.now();
 
@@ -267,33 +267,7 @@ export class Renderer {
     }
     ctx.stroke();
 
-    // Flèche en bout
-    if (path.length >= 2) {
-      const last = idxToPos(path[path.length - 1], cols);
-      const prev = idxToPos(path[path.length - 2], cols);
-
-      const lx = last.col * S + S / 2;
-      const ly = last.row * S + S / 2;
-      const dx = last.col - prev.col;
-      const dy = last.row - prev.row;
-      const angle = Math.atan2(dy, dx);
-      const arrowSize = 8 * SCALE;
-
-      ctx.setLineDash([]);
-      ctx.fillStyle = COLORS.escapeArrow;
-      ctx.beginPath();
-      ctx.moveTo(lx + Math.cos(angle) * arrowSize, ly + Math.sin(angle) * arrowSize);
-      ctx.lineTo(
-        lx + Math.cos(angle + 2.5) * arrowSize * 0.7,
-        ly + Math.sin(angle + 2.5) * arrowSize * 0.7,
-      );
-      ctx.lineTo(
-        lx + Math.cos(angle - 2.5) * arrowSize * 0.7,
-        ly + Math.sin(angle - 2.5) * arrowSize * 0.7,
-      );
-      ctx.closePath();
-      ctx.fill();
-    }
+    // Pas de flèche (supprimée)
 
     ctx.restore();
   }

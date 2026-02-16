@@ -129,7 +129,6 @@ export class UIManager {
           <p>Area: <strong>${result.area}</strong></p>
           ${result.cherryBonus ? `<p>Cherries: <strong>+${result.cherryBonus}</strong></p>` : ''}
           ${result.gemBonus ? `<p>Golden Apples: <strong>+${result.gemBonus}</strong></p>` : ''}
-          ${result.skullPenalty ? `<p>Bees: <strong>-${result.skullPenalty}</strong></p>` : ''}
           <hr>
           <p class="result-total">Total Score: <strong>${result.total}</strong></p>
           ${levelInfo.optimalScore ? `<p class="result-optimal">Optimal: ${levelInfo.optimalScore}</p>` : ''}
@@ -227,10 +226,9 @@ export class UIManager {
 
     const enclosed = !state.bfsResult.escaped;
     const hasGem = state.bfsResult.gemCount > 0;
-    const hasSkull = state.bfsResult.skullCount > 0;
 
     this.thoughtBubble.position(x, y);
-    this.thoughtBubble.show(enclosed, hasGem, hasSkull);
+    this.thoughtBubble.show(enclosed, hasGem);
   }
 
   hideThoughtBubble() {
