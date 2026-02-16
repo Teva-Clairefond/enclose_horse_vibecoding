@@ -76,12 +76,7 @@ export class Renderer {
           }
         }
 
-        // 3. Portails
-        if (portals[idx] >= 0) {
-          this._drawPortal(ctx, x, y, portals[idx], idx);
-        }
-
-        // 4. Cerises
+        // 3. Cerises
         if (cherries[idx]) {
           this._drawSprite(ctx, x, y, 'cherry');
         }
@@ -112,9 +107,7 @@ export class Renderer {
     }
 
     // 9. Chemin d'échappement (si le cheval s'échappe)
-    if (bfsResult && bfsResult.escaped && bfsResult.escapePath.length > 1) {
-      this._drawEscapePath(ctx, bfsResult.escapePath, cols);
-    }
+    // Pas de chemin d'échappement affiché
   }
 
   _drawGrass(ctx, x, y, seed) {
